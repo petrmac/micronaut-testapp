@@ -1,0 +1,6 @@
+applicationType: default
+defaultPackage: com.petrmacek
+testFramework: spock
+sourceLanguage: java
+buildTool: gradle_kotlin
+features: [annotation-api, app-name, data, data-jpa, gradle, h2, http-client-test, jackson-databind, java, java-application, jdbc-hikari, jib, kubernetes, liquibase, logback, management, micronaut-aot, micronaut-build, micronaut-http-validation, netty-server, openapi, properties, readme, shade, spock]
