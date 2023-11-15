@@ -22,17 +22,27 @@ dependencies {
 
     implementation("io.micronaut:micronaut-jackson-databind")
     implementation("io.micronaut:micronaut-management")
-    implementation("io.micronaut.data:micronaut-data-hibernate-jpa")
+    implementation("io.micronaut.serde:micronaut-serde-jackson")
+    implementation("io.micronaut.data:micronaut-data-r2dbc")
+    runtimeOnly("org.postgresql:r2dbc-postgresql")
+
+//    implementation("io.micronaut.data:micronaut-data-hibernate-jpa")
+
+    //https://docs.micronaut.io/snapshot/guide/index.html#datavalidation
+    implementation("io.micronaut.beanvalidation:micronaut-hibernate-validator")
+    implementation("io.micronaut:micronaut-validation:3.10.3")
+
+    // liquibase support
     implementation("io.micronaut.liquibase:micronaut-liquibase")
     implementation("io.micronaut.sql:micronaut-jdbc-hikari")
-    implementation("io.micronaut:micronaut-validation:3.10.3")
+    runtimeOnly("org.postgresql:postgresql")
 
     implementation("io.swagger.core.v3:swagger-annotations")
     implementation("jakarta.annotation:jakarta.annotation-api")
 
     compileOnly("io.micronaut:micronaut-http-client")
     runtimeOnly("ch.qos.logback:logback-classic")
-    runtimeOnly("com.h2database:h2")
+
     testImplementation("io.micronaut:micronaut-http-client")
 }
 
@@ -48,7 +58,7 @@ java {
 tasks {
     jib {
         to {
-            image = "gcr.io/myapp/jib-image"
+            image = "gcr.io/petrmac/micronaut-testapp"
         }
     }
 }
